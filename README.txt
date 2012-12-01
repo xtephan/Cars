@@ -18,7 +18,7 @@ My working environment:
 
 Known issues:
 * Maximum Speed is noy set
-* No Collision with the Trees
+* [FIXED] No Collision with the Trees
 * [FIXED] Camera is not following the car
 * [FIXED] Car is not slowing down
 * [FIXED] Wheels are not spinning
