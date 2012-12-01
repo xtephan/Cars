@@ -17,7 +17,7 @@ My working environment:
 * MonoDevelop
 
 Known issues:
-* Maximum Speed is noy set
+* Maximum Speed is not set
 * [FIXED] No Collision with the Trees
 * [FIXED] Camera is not following the car
 * [FIXED] Car is not slowing down

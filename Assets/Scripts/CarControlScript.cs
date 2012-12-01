@@ -10,7 +10,10 @@ public class CarControlScript : MonoBehaviour {
 	public Transform wheelFLTrans, wheelFRTrans, wheelRLTrans,wheelRRTrans;
 	
 	float maxTorque = 50f;
+	
 	float highestSpeed = 50;
+	float highestReverse = 20;
+	
 	float lowSpeedSteerAngle = 10;
 	float highSpeedSteerAngle = 1;
 	float decelarationSpeed = 30;
@@ -45,6 +48,7 @@ public class CarControlScript : MonoBehaviour {
 	
 	//Controls for the car
 	private void ControlCar() {
+		
 		// Apply Torque to move the car
 		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
 		wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
