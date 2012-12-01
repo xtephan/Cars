@@ -9,7 +9,7 @@ URL: http://www.youtube.com/user/FlatTutorials
 Builds details:
 * Builds/ - Builds for Windows x64
 
-Assets provided by TBA .
+Assets provided by Flat Tutorials.
 
 My working environment:
 * Windows 8 x64
