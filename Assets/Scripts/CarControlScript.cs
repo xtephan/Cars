@@ -12,10 +12,14 @@ public class CarControlScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
+		//change mass center
+		rigidbody.centerOfMass = new Vector3(rigidbody.centerOfMass.x, -0.9f, rigidbody.centerOfMass.z);
+		
+		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		// Apply Torque to move the car
 		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
