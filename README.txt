@@ -18,3 +18,5 @@ My working environment:
 
 Known issues:
 * Camera is not following the car
+* Car is not slowing down
+* Wheels are not spinning
