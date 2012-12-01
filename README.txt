@@ -19,4 +19,5 @@ My working environment:
 Known issues:
 * [FIXED] Camera is not following the car
 * Car is not slowing down
-* Wheels are not spinning
+* [FIXED] Wheels are not spinning
+* FrontLeft Wheel is turning 180 angles

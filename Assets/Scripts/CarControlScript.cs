@@ -34,10 +34,15 @@ public class CarControlScript : MonoBehaviour {
 	
 	void Update() {
 	
+		// wheel spin
 		wheelFLTrans.Rotate(wheelFL.rpm/60*360*Time.deltaTime, 0, 0);
 		wheelFRTrans.Rotate(wheelFR.rpm/60*360*Time.deltaTime, 0, 0);
 		wheelRLTrans.Rotate(wheelRL.rpm/60*360*Time.deltaTime, 0, 0);
 		wheelRRTrans.Rotate(wheelRR.rpm/60*360*Time.deltaTime, 0, 0);
+		
+		// wheel steer
+		wheelFLTrans.localEulerAngles = new Vector3(wheelFLTrans.localEulerAngles.x, wheelFL.steerAngle + 180 - wheelFLTrans.localEulerAngles.z, wheelFLTrans.localEulerAngles.z);
+		wheelFRTrans.localEulerAngles = new Vector3(wheelFRTrans.localEulerAngles.x, wheelFR.steerAngle - wheelFRTrans.localEulerAngles.z, wheelFRTrans.localEulerAngles.z);
 		
 	}
 }
