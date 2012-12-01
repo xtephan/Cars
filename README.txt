@@ -20,4 +20,4 @@ Known issues:
 * [FIXED] Camera is not following the car
 * Car is not slowing down
 * [FIXED] Wheels are not spinning
-* FrontLeft Wheel is turning 180 angles
+* [FIXED] FrontLeft Wheel is turning 180 angles

@@ -10,6 +10,9 @@ public class CarControlScript : MonoBehaviour {
 	public Transform wheelFLTrans, wheelFRTrans, wheelRLTrans,wheelRRTrans;
 	
 	float maxTorque = 50f;
+	float highestSpeed = 50;
+	float lowSpeedSteerAngle = 10;
+	float highSpeedSteerAngle = 1;
 	
 	// Use this for initialization
 	void Start () {
@@ -27,9 +30,13 @@ public class CarControlScript : MonoBehaviour {
 		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
 		wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
 		
+		float speedFactor = rigidbody.velocity.magnitude/highestSpeed;
+		float currentSteerAngle = Mathf.Lerp(lowSpeedSteerAngle,highSpeedSteerAngle,speedFactor);
+		
+		currentSteerAngle *= Input.GetAxis("Horizontal");
 		// Apply Steering
-		wheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
-		wheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
+		wheelFL.steerAngle = currentSteerAngle;
+		wheelFR.steerAngle = currentSteerAngle;
 	}
 	
 	void Update() {
