@@ -7,7 +7,7 @@ Based on Flat Tutorials, with slight adjustments.
 URL: http://www.youtube.com/user/FlatTutorials
 
 Builds details:
-* TBA
+* Builds/ - Builds for Windows x64
 
 Assets provided by TBA .
 
