@@ -7,6 +7,8 @@ public class CarControlScript : MonoBehaviour {
 	//Wheels
 	public WheelCollider wheelFL, wheelFR, wheelRL, wheelRR; 
 	
+	public Transform wheelFLTrans, wheelFRTrans, wheelRLTrans,wheelRRTrans;
+	
 	float maxTorque = 50f;
 	
 	// Use this for initialization
@@ -28,5 +30,14 @@ public class CarControlScript : MonoBehaviour {
 		// Apply Steering
 		wheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
 		wheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
+	}
+	
+	void Update() {
+	
+		wheelFLTrans.Rotate(wheelFL.rpm/60*360*Time.deltaTime, 0, 0);
+		wheelFRTrans.Rotate(wheelFR.rpm/60*360*Time.deltaTime, 0, 0);
+		wheelRLTrans.Rotate(wheelRL.rpm/60*360*Time.deltaTime, 0, 0);
+		wheelRRTrans.Rotate(wheelRR.rpm/60*360*Time.deltaTime, 0, 0);
+		
 	}
 }
