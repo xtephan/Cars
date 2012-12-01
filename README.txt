@@ -9,7 +9,7 @@ URL: http://www.youtube.com/user/FlatTutorials
 Builds details:
 * Builds/ - Builds for Windows x64
 
-Assets provided by Flat Tutorials.
+Assets provided by Flat Tutorials and Unity Store.
 
 My working environment:
 * Windows 8 x64
@@ -17,4 +17,4 @@ My working environment:
 * MonoDevelop
 
 Known issues:
-* TBA
+* Camera is not following the car
