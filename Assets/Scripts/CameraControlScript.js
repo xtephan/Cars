@@ -48,6 +48,6 @@ function FixedUpdate() {
 
 	// create zoom effect
 	var acceleration = car.rigidbody.velocity.magnitude;
-	camera.fieldOfView = defaultFOV + acceleration * zoomRatio * Time.deltaTime;
+	camera.fieldOfView = defaultFOV + acceleration * zoomRatio;
 
 }
