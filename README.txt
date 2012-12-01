@@ -17,7 +17,9 @@ My working environment:
 * MonoDevelop
 
 Known issues:
+* Maximum Speed is noy set
+* No Collision with the Trees
 * [FIXED] Camera is not following the car
-* Car is not slowing down
+* [FIXED] Car is not slowing down
 * [FIXED] Wheels are not spinning
 * [FIXED] FrontLeft Wheel is turning 180 angles

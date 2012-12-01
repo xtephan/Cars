@@ -13,6 +13,7 @@ public class CarControlScript : MonoBehaviour {
 	float highestSpeed = 50;
 	float lowSpeedSteerAngle = 10;
 	float highSpeedSteerAngle = 1;
+	float decelarationSpeed = 30;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,18 +26,7 @@ public class CarControlScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		
-		// Apply Torque to move the car
-		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
-		wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
-		
-		float speedFactor = rigidbody.velocity.magnitude/highestSpeed;
-		float currentSteerAngle = Mathf.Lerp(lowSpeedSteerAngle,highSpeedSteerAngle,speedFactor);
-		
-		currentSteerAngle *= Input.GetAxis("Horizontal");
-		// Apply Steering
-		wheelFL.steerAngle = currentSteerAngle;
-		wheelFR.steerAngle = currentSteerAngle;
+		ControlCar();
 	}
 	
 	void Update() {
@@ -51,5 +41,30 @@ public class CarControlScript : MonoBehaviour {
 		wheelFLTrans.localEulerAngles = new Vector3(wheelFLTrans.localEulerAngles.x, wheelFL.steerAngle + 180 - wheelFLTrans.localEulerAngles.z, wheelFLTrans.localEulerAngles.z);
 		wheelFRTrans.localEulerAngles = new Vector3(wheelFRTrans.localEulerAngles.x, wheelFR.steerAngle - wheelFRTrans.localEulerAngles.z, wheelFRTrans.localEulerAngles.z);
 		
+	}
+	
+	//Controls for the car
+	private void ControlCar() {
+		// Apply Torque to move the car
+		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
+		wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
+		
+		// Decelerate when not pressing any keys
+		if( Input.GetButton("Vertical") == false ) {
+			wheelRR.brakeTorque = decelarationSpeed;
+			wheelRL.brakeTorque = decelarationSpeed;
+		} else {
+			wheelRR.brakeTorque = 0;
+			wheelRL.brakeTorque = 0;
+		}
+		
+		
+		float speedFactor = rigidbody.velocity.magnitude/highestSpeed;
+		float currentSteerAngle = Mathf.Lerp(lowSpeedSteerAngle,highSpeedSteerAngle,speedFactor);
+		
+		currentSteerAngle *= Input.GetAxis("Horizontal");
+		// Apply Steering
+		wheelFL.steerAngle = currentSteerAngle;
+		wheelFR.steerAngle = currentSteerAngle;
 	}
 }
