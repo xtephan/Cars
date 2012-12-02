@@ -43,7 +43,7 @@ Assembly-UnityScript.pidb
 Assembly-UnityScript.unityProj
 
 # Ignore the following file extensions
-*.exe
+#*.exe
 *.vcproject
 *.svd
 *.userprefs
