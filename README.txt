@@ -1,5 +1,6 @@
 A basic car game written in Unity.
 It's not about the fancy graphics, it's about the functionality.
+Later Update: Ported to Android
 (Testing and learning Unity)
 
 
@@ -8,6 +9,7 @@ URL: http://www.youtube.com/user/FlatTutorials
 
 Builds details:
 * Builds/ - Builds for Windows x64
+* Builds/Android - Builds for Android 2.3.3 or higher
 
 Assets provided by Flat Tutorials and Unity Store.
 
@@ -17,7 +19,10 @@ My working environment:
 * MonoDevelop
 
 Known issues:
-* Maximum Speed is not set
+* Pedals might be offset due to not implementing a liquid design
+* Accelerometer is not implemented yet
+* Game is not optimised for mobile
+* [FIXED] Maximum Speed is not set
 * [FIXED] No Collision with the Trees
 * [FIXED] Camera is not following the car
 * [FIXED] Car is not slowing down
