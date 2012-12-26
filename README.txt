@@ -19,7 +19,7 @@ My working environment:
 * MonoDevelop
 
 Known issues:
-* Pedals might be offset due to not implementing a liquid design
+* [FIXED] Pedals might be offset due to not implementing a liquid design
 * Accelerometer is not implemented yet
 * Game is not optimised for mobile
 * [FIXED] Maximum Speed is not set
