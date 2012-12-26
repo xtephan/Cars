@@ -18,6 +18,11 @@ public class CarControlScript : MonoBehaviour {
 	float highSpeedSteerAngle = 1;
 	float decelarationSpeed = 30;
 	
+	float topSpeed = 150;
+	
+	public GUITexture AcceleratePedal;
+	public GUITexture BreakPedal;
+	
 	// Use this for initialization
 	void Start () {
 	
@@ -46,12 +51,36 @@ public class CarControlScript : MonoBehaviour {
 		
 	}
 	
+	
+	
 	//Controls for the car
 	private void ControlCar() {
 		
-		// Apply Torque to move the car
-		wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
-		wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
+		// Compute the speed based on RPM
+		float currentSpeed = Mathf.Round( 2 * Mathf.PI * wheelRL.radius * wheelRL.rpm/60 * 100 );
+		
+		
+		// Input for Android
+		float multiplySpeedFactor = 0;
+		
+		if( Input.GetMouseButton(0) && AcceleratePedal.HitTest(Input.mousePosition) )
+			multiplySpeedFactor = 1;
+		
+		if( Input.GetMouseButton(0) && BreakPedal.HitTest(Input.mousePosition) )
+			multiplySpeedFactor = -1;
+		
+		
+		if( currentSpeed < topSpeed ) {
+			// Apply Torque to move the car
+			//wheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
+			//wheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
+			wheelRL.motorTorque = maxTorque *  multiplySpeedFactor;
+			wheelRR.motorTorque = maxTorque * multiplySpeedFactor;
+		} else {
+			// No more torque is over the speed limit
+			wheelRL.motorTorque = 0;
+			wheelRR.motorTorque = 0;
+		}
 		
 		// Decelerate when not pressing any keys
 		if( Input.GetButton("Vertical") == false ) {
