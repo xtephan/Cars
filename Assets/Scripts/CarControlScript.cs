@@ -95,7 +95,9 @@ public class CarControlScript : MonoBehaviour {
 		float speedFactor = rigidbody.velocity.magnitude/highestSpeed;
 		float currentSteerAngle = Mathf.Lerp(lowSpeedSteerAngle,highSpeedSteerAngle,speedFactor);
 		
-		currentSteerAngle *= Input.GetAxis("Horizontal");
+		
+		currentSteerAngle *= Input.acceleration.x * 10;
+		
 		// Apply Steering
 		wheelFL.steerAngle = currentSteerAngle;
 		wheelFR.steerAngle = currentSteerAngle;

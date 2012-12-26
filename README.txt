@@ -17,11 +17,13 @@ My working environment:
 * Windows 8 x64
 * Unity Pro 3.5
 * MonoDevelop
+* Android 4.0.4 with HTC Sense, 
+
 
 Known issues:
-* [FIXED] Pedals might be offset due to not implementing a liquid design
-* Accelerometer is not implemented yet
 * Game is not optimised for mobile
+* [FIXED] Pedals might be offset due to not implementing a liquid design
+* [FIXED] Accelerometer is not implemented yet
 * [FIXED] Maximum Speed is not set
 * [FIXED] No Collision with the Trees
 * [FIXED] Camera is not following the car
